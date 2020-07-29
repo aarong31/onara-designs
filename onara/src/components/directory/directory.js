@@ -11,6 +11,19 @@ class Directory extends React.Component {
     this.state = {
       sections: [
         {
+            title: 'womens',
+            imageUrl: 'https://images.unsplash.com/photo-1559405173-5810abfc9403?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
+            size: 'large',
+  
+            id: 4
+          },
+          {
+            title: 'mens',
+            imageUrl: 'https://images.unsplash.com/photo-1523398002811-999ca8dec234?ixlib=rb-1.2.1&auto=format&fit=crop&w=649&q=80',
+            size: 'large',
+            id: 5
+          },
+        {
           title: 'hats',
           imageUrl: 'https://images.unsplash.com/flagged/photo-1557581462-0bf3e5907811?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
           id: 1         
@@ -26,28 +39,15 @@ class Directory extends React.Component {
           positionT: 'positionT',
           id: 3
         },
-        {
-          title: 'womens',
-          imageUrl: 'https://images.unsplash.com/photo-1559405173-5810abfc9403?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-          size: 'large',
-
-          id: 4
-        },
-        {
-          title: 'mens',
-          imageUrl: 'https://images.unsplash.com/photo-1523398002811-999ca8dec234?ixlib=rb-1.2.1&auto=format&fit=crop&w=649&q=80',
-          size: 'large',
-          id: 5
-        }
       ]
     };
   }
 
   render() {
     return (
-      <div className='directory-menu'>
-        {this.state.sections.map(({ title, imageUrl, id, size, positionT }) => (
-          <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} positionT={positionT}  />
+        <div className='directory-menu'>
+        {this.state.sections.map(({ id, ...otherSectionProps }) => (
+          <MenuItem key={id} {...otherSectionProps} />
         ))}
       </div>
     );
