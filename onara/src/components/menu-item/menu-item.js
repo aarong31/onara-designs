@@ -12,7 +12,7 @@ const MenuItem = ({ title, imageUrl, history, size, linkUrl, positionT, match}) 
     <div className='content'>
       <h1 className='title is-1 has-text-white'>{title.toUpperCase()}</h1>
       <button className="button button-color">
-        <span className='subtitle is-2 has-text-white'>SHOP NOW</span>
+        <span className='subtitle is-2 has-text-white'>SHOP {title.toUpperCase()}</span>
       </button>
     </div>
   </div>
