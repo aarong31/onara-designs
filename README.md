@@ -1,3 +1,6 @@
+
+<h2>I found out too late what the website name means in japanese but it was too late to change it ;( </h2>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
