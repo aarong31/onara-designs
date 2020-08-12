@@ -4,16 +4,16 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import {ReactComponent as Logo} from '../../media/oLogo.svg';
-import { auth } from '../../firebase-utils/firebase.utils';
 
 import CartIcon from '../cart-icon/cart-icon';
 import CartDropdown from '../cart-dropdown/cart-dropdown';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { signOutStart } from '../../redux/user/user.actions';
 
 import './nav.scss'
 
-const Nav = ({ currentUser, hidden }) => (
+const Nav = ({ currentUser, hidden, signOutStart }) => (
 <nav className="navbar pl-6 pb-4 pt-3" role="navigation" aria-label="main navigation">
          <div className="navbar-brand logo-container pl-6">
             <Link to="/">
@@ -46,7 +46,7 @@ const Nav = ({ currentUser, hidden }) => (
                 </Link>
                  {currentUser ? (
                     <Link to="">
-                        <div className='subtitle navbar-item has-text-black is-5 pt-4 navHover' onClick={() => auth.signOut()}>
+                        <div className='subtitle navbar-item has-text-black is-5 pt-4 navHover' onClick={signOutStart}>
                         SIGN OUT
                         </div>
                    </Link>
@@ -69,4 +69,11 @@ const mapStateToProps = createStructuredSelector({
     hidden: selectCartHidden
   });
   
-  export default connect(mapStateToProps)(Nav);
+  const mapDispatchToProps = dispatch => ({
+    signOutStart: () => dispatch(signOutStart())
+  });
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Nav);

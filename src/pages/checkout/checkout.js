@@ -41,7 +41,7 @@ const CheckoutPage = ({ cartItems, total }) => (
       *Please use the following test credit card for payments*
       </span>
       <span className="subtitle is-4 has-text-danger">
-      4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
+      4242 4242 4242 4242 - Exp: 01/21 - CVV: 123
       </span>
     </div>
   </div>
