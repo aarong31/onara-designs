@@ -2,6 +2,8 @@ import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
 
+
+
 const StripeCheckoutButton = ({ price }) => {
   const priceForStripe = price * 100;
   const publishableKey = 'pk_test_51HCG6GERXgVSBkk3VDJWDnpORJulPQMh6bq7gqBTJj1axk2h71mqqwV1QU87UmkyBJEGq9KCWmDlMjgdickp7UjU0025lqyrPw';
@@ -25,7 +27,6 @@ const StripeCheckoutButton = ({ price }) => {
         );
       });
   };
-
   return (
     <StripeCheckout
       label='Pay Now'
